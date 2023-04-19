@@ -24,7 +24,7 @@ time.sleep(5)
 username = driver.find_element(By.ID, "username")
 username.send_keys("duyap@uci.edu")
 pword = driver.find_element(By.ID, "password")
-pword.send_keys(pwrd)	
+pword.send_keys(pwrd)
 driver.find_element(By.XPATH, "//button[@type='submit']").click()
 
 # Opening TKH's Profile
@@ -47,13 +47,12 @@ while True:
     initialScroll = finalScroll
     finalScroll += 1000
  
-    # we will stop the script for 3 seconds so that
-    # the data can load
+    # wwaiting for page to load 
     time.sleep(3)
 
     end = time.time()
  
-    # We will scroll for 120 seconds.
+    # Scroll page for 120 seconds
     if round(end - start) > 120:
         break
     
