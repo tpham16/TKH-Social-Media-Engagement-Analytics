@@ -1,4 +1,4 @@
-DROP SCHEMA IF EXISTS;
+DROP SCHEMA IF EXISTS market cascade;
 CREATE SCHEMA market;
 
 CREATE TABLE market.youtube(
@@ -7,7 +7,7 @@ CREATE TABLE market.youtube(
     Likes INT,
     CommentCount INT,
     ViewCount INT,
-    Title VARCHAR(255)
+    Title VARCHAR(255),
     URL VARCHAR(255)
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE market.instgram(
     likesCount INT,
     ig_timestamp timestamp,
     videoViewCount INT,
-    videoPlayCount INT.
+    videoPlayCount INT,
     videoDuration INT    
 );
 
