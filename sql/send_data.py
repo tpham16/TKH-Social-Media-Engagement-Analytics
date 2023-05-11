@@ -22,14 +22,21 @@ with conn.cursor() as cursor:
         print(queries)
         cursor.execute(queries)
     conn.commit()
-
     
-'''
-    # (PART OF) SPRINT 6
-    # DUE UNTIL 5/10 (WEDNESDAY OF NEXT WEEK)
-    with open('phase_3/week_7/data/customers.csv', 'r') as f:    
-        cmd = 'COPY store.customer(cust_id, fname, lname, account_create) FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
+    # twitter
+    with open('data/tweets.csv', 'r', encoding = 'cp850') as f:    
+        cmd = 'COPY market.twitter FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
         cursor.copy_expert(cmd, f)
     conn.commit()
-'''
+
+    # # youtube
+    # with open('data\youtube_data.csv', 'r',encoding = 'cp850') as f:    
+    #     cmd = 'COPY market.youtube  FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
+    #     cursor.copy_expert(cmd, f)
     
+    # # instagram 
+    # with open('data\IG_cleaned_data.csv', 'r',encoding = 'cp850') as f:    
+    #     cmd = 'COPY market.instgram (id) FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
+    #     cursor.copy_expert(cmd, f)
+    # conn.commit()
+   
