@@ -2,15 +2,14 @@ DROP SCHEMA IF EXISTS market cascade;
 CREATE SCHEMA market;
 
 CREATE TABLE market.youtube(
-    index VARCHAR(255),
     id VARCHAR(255) PRIMARY KEY,
     title VARCHAR(255),
     url VARCHAR(255),
-    viewCount VARCHAR(255),
+    viewCount INT,
     date VARCHAR(255),
-    likes VARCHAR(255),
+    likes INT,
     duration VARCHAR(255),
-    commentsCount VARCHAR(255)
+    commentsCount FLOAT
 );
 
 CREATE TABLE market.twitter(

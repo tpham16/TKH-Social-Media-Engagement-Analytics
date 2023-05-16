@@ -17,17 +17,17 @@ params = {
 conn = psycopg2.connect(**params)
 
 with conn.cursor() as cursor:
-    with open('TKH-Social-Media-Engagement-Analytics\sql\schema.sql', 'r') as schema:
+    with open('TKH-Social-Media-Engagement-Analytics\sql\youtube_schema.sql', 'r') as schema:
         queries = schema.read()
         print(queries)
         cursor.execute(queries)
-    # conn.commit()
 
-    
-    # (PART OF) SPRINT 6
-    # DUE UNTIL 5/10 (WEDNESDAY OF NEXT WEEK)
+
+
+
+#youtube 
     with open('TKH-Social-Media-Engagement-Analytics\data\youtube_data.csv', 'r') as f:    
-        cmd = 'COPY market.youtube (title, id, url, viewCount, date, likes, duration,commentsCount, text) FROM STDIN WITH (FORMAT CSV)'
+        cmd = 'COPY market.youtube (title, id, url, viewCount, date, likes, duration,commentsCount) FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
+
     conn.commit()
-    
