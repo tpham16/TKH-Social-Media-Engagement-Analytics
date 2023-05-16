@@ -13,13 +13,15 @@ CREATE TABLE market.youtube(
 
 CREATE TABLE market.twitter(
     id VARCHAR(255) PRIMARY KEY,
+    twitter_date DATE,
+    Tweet VARCHAR(255),
     Likes INT,
     Comments INT,
-    Reposts INT,
-    twitter_date DATE
+    Retweets INT
+    
 );
 
-CREATE TABLE market.instgram(
+CREATE TABLE market.instagram(
     id VARCHAR(255) PRIMARY KEY,
     hashtags VARCHAR(255),
     commentsCount INT,
