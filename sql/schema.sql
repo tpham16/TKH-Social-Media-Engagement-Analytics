@@ -3,12 +3,13 @@ CREATE SCHEMA market;
 
 CREATE TABLE market.youtube(
     id VARCHAR(255) PRIMARY KEY,
-    youtube_date DATE,
-    Likes INT,
-    CommentCount INT,
-    ViewCount INT,
-    Title VARCHAR(255),
-    URL VARCHAR(255)
+    title VARCHAR(255),
+    url VARCHAR(255),
+    viewCount INT,
+    date VARCHAR(255),
+    likes INT,
+    duration VARCHAR(255),
+    commentsCount FLOAT
 );
 
 CREATE TABLE market.twitter(
