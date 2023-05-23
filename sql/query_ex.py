@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from config import connection
+from sprint7_eda.config import connection
 
 def main():
     print("Welcome to the database.")
