@@ -29,14 +29,20 @@ with conn.cursor() as cursor:
         cursor.copy_expert(cmd, f)
     conn.commit()
 
-    # # youtube
-    # with open('data\youtube_data.csv', 'r',encoding = 'cp850') as f:    
-    #     cmd = 'COPY market.youtube  FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
-    #     cursor.copy_expert(cmd, f)
+    # youtube
+    with open('data/youtube_data.csv', 'r',encoding = 'cp850') as f:    
+        cmd = 'COPY market.youtube  FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
+        cursor.copy_expert(cmd, f)
     
     # # instagram 
-    # with open('data\IG_cleaned_data.csv', 'r',encoding = 'cp850') as f:    
-    #     cmd = 'COPY market.instgram (id) FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
-    #     cursor.copy_expert(cmd, f)
-    # conn.commit()
-   
+    with open('data/without_hashtags.csv', 'r',encoding = 'cp850') as f:    
+        cmd = 'COPY market.instagram FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
+        cursor.copy_expert(cmd, f)
+
+    with open('data/just_hashtags', 'r',encoding = 'cp850') as f:    
+        cmd = 'COPY market.instagram_hashtag FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
+        cursor.copy_expert(cmd, f)
+
+    with open('data/primary_table.csv', 'r',encoding = 'cp850') as f:    
+        cmd = 'COPY market.instagram_hash_post FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
+        cursor.copy_expert(cmd, f)
