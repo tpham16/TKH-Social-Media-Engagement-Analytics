@@ -11,8 +11,19 @@ CREATE OR REPLACE FUNCTION market.max_youtube_inter() RETURNS RECORD AS $$
 		RETURN VAL;
 	END $$
 
-
-
+CREATE OR REPLACE FUNCTION market.instagram_interactions() RETURNS TABLE(
+hashtags VARCHAR) AS $$
+	BEGIN
+		RETURN QUERY
+		SELECT Ig_hashtags.hashtags::varchar(255)
+		FROM(
+			SELECT DISTINCT ih.hashtag as hashtags
+			FROM market.instagram AS i
+			LEFT JOIN market.instagram_hash_post AS ihp ON i.id = ihp.id
+			LEFT JOIN market.instagram_hashtag AS ih ON ihp.hashtag_index = ih.index_num
+			WHERE i.likesCount = (
+				SELECT MAX(likesCount) FROM market.instagram)) AS Ig_hashtags;
+	END $$
 
 CREATE OR REPLACE FUNCTION market.total_interactions() RETURNS TABLE(
 platform VARCHAR, total_likes FLOAT) AS $$
@@ -30,4 +41,6 @@ platform VARCHAR, total_likes FLOAT) AS $$
 			FROM market.twitter
 			) AS likes_total;
 	END $$
+
+
 LANGUAGE plpgsql;
