@@ -24,9 +24,9 @@ def main():
         if entry == '1':
             result = session.query(func.market.max_youtube_inter()).all()
         elif entry == '2':
-            result = session.query(func.market.market.instagram_interactions()).all()
+            result = session.query(func.market.instagram_interactions()).tuples()
         elif entry == '3':
-           result = session.query(func.market.total_interactions()).all()
+           result = session.query(func.market.total_interactions()).tuples()
         elif entry == 'E':
             print("Exiting")
             break
