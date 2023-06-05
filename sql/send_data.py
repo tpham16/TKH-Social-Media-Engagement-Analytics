@@ -35,14 +35,14 @@ with conn.cursor() as cursor:
         cursor.copy_expert(cmd, f)
     
     # # instagram 
-    with open('data/without_hashtags.csv', 'r',encoding = 'cp850') as f:    
+    with open('data/ig_without_hashtags.csv', 'r',encoding = 'cp850') as f:    
         cmd = 'COPY market.instagram FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
 
-    with open('data/just_hashtags', 'r',encoding = 'cp850') as f:    
+    with open('data/ig_just_hashtags.csv', 'r',encoding = 'cp850') as f:    
         cmd = 'COPY market.instagram_hashtag FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
 
-    with open('data/primary_table.csv', 'r',encoding = 'cp850') as f:    
+    with open('data/IG_primary_table.csv', 'r',encoding = 'cp850') as f:    
         cmd = 'COPY market.instagram_hash_post FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
