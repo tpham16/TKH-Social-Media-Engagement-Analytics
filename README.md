@@ -28,6 +28,8 @@ This project includes several visualizations to help understand social media eng
 ## Results
 This project provides insights and recommendations for improving social media engagement. 
 
+# Methodology 
+
 [Identifying best time to post]
 [Which social media platforms are most effective]
 [which content of content generates the most engagement]
