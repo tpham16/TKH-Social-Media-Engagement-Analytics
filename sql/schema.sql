@@ -43,7 +43,7 @@ CREATE TABLE market.instagram_hashtag(
 CREATE TABLE market.instagram_hash_post(
     index INT PRIMARY KEY,
     id VARCHAR(255) REFERENCES market.instagram(id),
-    hashtag_index float REFERENCES market.instagram_hashtag(index_num)
+    hashtag_index int REFERENCES market.instagram_hashtag(index_num)
 );
 -- Create TABLE market.facebook
 -- CREATE TABLE market.linkedin
