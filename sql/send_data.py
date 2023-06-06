@@ -3,6 +3,8 @@ import psycopg2.extras
 import csv
 import os
 
+
+
 my_password = os.environ.get('password') 
 
 # aws rds 
@@ -21,20 +23,19 @@ with conn.cursor() as cursor:
         queries = schema.read()
         print(queries)
         cursor.execute(queries)
-    conn.commit()
     
     # twitter
     with open('data/tweets.csv', 'r', encoding = 'cp850') as f:    
-        cmd = 'COPY market.twitter FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
+        cmd = 'COPY market.twitter FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
-    conn.commit()
+
 
     # youtube
     with open('data/youtube_data.csv', 'r',encoding = 'cp850') as f:    
-        cmd = 'COPY market.youtube  FROM STDIN WITH (FORMAT CSV, HEADER FALSE)'
+        cmd = 'COPY market.youtube  FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
-    
-    # # instagram 
+
+    # instagram 
     with open('data/ig_without_hashtags.csv', 'r',encoding = 'cp850') as f:    
         cmd = 'COPY market.instagram FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
@@ -46,3 +47,5 @@ with conn.cursor() as cursor:
     with open('data/IG_primary_table.csv', 'r',encoding = 'cp850') as f:    
         cmd = 'COPY market.instagram_hash_post FROM STDIN WITH (FORMAT CSV, HEADER TRUE)'
         cursor.copy_expert(cmd, f)
+
+    conn.commit()

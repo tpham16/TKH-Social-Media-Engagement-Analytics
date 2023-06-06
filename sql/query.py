@@ -24,9 +24,12 @@ def main():
         if entry == '1':
             result = session.query(func.market.max_youtube_inter()).all()
         elif entry == '2':
-            result = session.query(func.market.instagram_interactions()).tuples()
+            result = session.query(func.market.instagram_interactions()).all()
         elif entry == '3':
-           result = session.query(func.market.total_interactions()).tuples()
+            with engine.connect() as connection:
+                result = connection.execute("SELECT * FROM total_interactions();")
+                for row in result:
+                    print(row)
         elif entry == 'E':
             print("Exiting")
             break
