@@ -44,7 +44,7 @@ https://public.tableau.com/app/profile/tom.pham5473/viz/TKHSocialMediaEngagement
 ## Results 
 This project web-scraped Twitter, Instagram, and YouTube data from The Knowledge House using Snscrape and Apify. The collected data offers valuable insights and recommendations for enhancing social media engagement. 
 
-### Best time to Post
+### Best Time to Post
 * Analysis of the collected data indicated that Twitter and Instagram posts posted between 6-7 PM (EST) resulted in the highest amount of likes. Additionally, the trends in engagement revealed that all of the platforms received the most amount of likes during the months of May, June, and March.
 
 ### Most Effective Posts
